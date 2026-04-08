@@ -1,0 +1,17 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-net --allow-env --allow-read --watch src/index.js",
+    "start": "deno run --allow-net --allow-env --allow-read src/index.js"
+  },
+  "imports": {
+    "satori": "npm:satori@^0.10.13",
+    "@resvg/resvg-wasm": "npm:@resvg/resvg-wasm@^2.6.2",
+    "xlsx": "npm:xlsx@0.18.5",
+    "nodemailer": "npm:nodemailer@^6.9.16"
+  },
+  "nodeModulesDir": "auto",
+  "allowScripts": {
+    "allow": [],
+    "deny": ["npm:esbuild@0.27.3", "npm:sharp@0.34.5", "npm:workerd@1.20260405.1"]
+  }
+}

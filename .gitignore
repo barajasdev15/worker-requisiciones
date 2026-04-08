@@ -1,0 +1,14 @@
+# Archivos con credenciales - NUNCA subir a Deno Deploy ni a Git
+.env
+.dev.vars
+*.json.local
+
+# Carpetas de runtime
+node_modules/
+.wrangler/
+
+# Archivos de prueba
+test-gmail.py
+test-env.js
+body-dryrun.json
+body-real.json

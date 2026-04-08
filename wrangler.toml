@@ -1,0 +1,17 @@
+name = "worker-requisiciones"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Permitir importar archivos .wasm como módulos (necesario para resvg-wasm)
+rules = [
+  { type = "CompiledWasm", globs = ["**/*.wasm"], fallthrough = true }
+]
+
+# Variables públicas (no son secretos)
+[vars]
+ENVIRONMENT = "production"
+
+# Para futuro uso del trigger scheduled
+# [triggers]
+# crons = ["0 8 * * *"]
