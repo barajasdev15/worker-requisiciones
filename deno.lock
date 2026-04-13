@@ -2,10 +2,8 @@
   "version": "5",
   "specifiers": {
     "npm:@resvg/resvg-wasm@^2.4.1": "2.6.2",
-    "npm:@resvg/resvg-wasm@^2.6.2": "2.6.2",
     "npm:nodemailer@^6.9.16": "6.10.1",
     "npm:satori@0.26": "0.26.0",
-    "npm:satori@~0.10.13": "0.10.14",
     "npm:wrangler@^4.81.0": "4.81.0",
     "npm:xlsx@0.18.5": "0.18.5",
     "npm:xlsx@~0.18.5": "0.18.5"
@@ -451,9 +449,6 @@
     "emoji-regex-xs@2.0.1": {
       "integrity": "sha512-1QFuh8l7LqUcKe24LsPUNzjrzJQ7pgRwp1QMcZ5MX6mFplk2zQ08NVCM84++1cveaUUYtcCYHmeFEuNg16sU4g=="
     },
-    "emoji-regex@10.6.0": {
-      "integrity": "sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A=="
-    },
     "error-stack-parser-es@1.0.5": {
       "integrity": "sha512-5qucVt2XcuGMcEGgWI7i+yZpmpByQ8J1lHhcL7PwqCwu9FPP3VUXzT4ltHe5i2z9dePwEHcDVOAfSnHsOlCXRA=="
     },
@@ -550,21 +545,6 @@
     },
     "postcss-value-parser@4.2.0": {
       "integrity": "sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ=="
-    },
-    "satori@0.10.14": {
-      "integrity": "sha512-abovcqmwl97WKioxpkfuMeZmndB1TuDFY/R+FymrZyiGP+pMYomvgSzVPnbNMWHHESOPosVHGL352oFbdAnJcA==",
-      "dependencies": [
-        "@shuding/opentype.js",
-        "css-background-parser",
-        "css-box-shadow",
-        "css-to-react-native",
-        "emoji-regex",
-        "escape-html",
-        "linebreak",
-        "parse-css-color",
-        "postcss-value-parser",
-        "yoga-wasm-web"
-      ]
     },
     "satori@0.26.0": {
       "integrity": "sha512-tkMFrfIs3l2mQ2JEcyW0ADTy3zGggFRFzi6Ef8YozQSFsFKEqaSO1Y8F9wJg4//PJGQauMalHGTUEkPrFwhVPA==",
@@ -709,9 +689,6 @@
     "yoga-layout@3.2.1": {
       "integrity": "sha512-0LPOt3AxKqMdFBZA3HBAt/t/8vIKq7VaQYbuA8WxCgung+p9TVyKRYdpvCb80HcdTN2NkbIKbhNwKUfm3tQywQ=="
     },
-    "yoga-wasm-web@0.3.3": {
-      "integrity": "sha512-N+d4UJSJbt/R3wqY7Coqs5pcV0aUj2j9IaQ3rNj9bVCLld8tTGKRa2USARjnvZJWVx1NDmQev8EknoczaOQDOA=="
-    },
     "youch-core@0.3.3": {
       "integrity": "sha512-ho7XuGjLaJ2hWHoK8yFnsUGy2Y5uDpqSTq1FkHLK4/oqKtyUU1AFbOOxY4IpC9f0fTLjwYbslUz0Po5BpD1wrA==",
       "dependencies": [
@@ -751,9 +728,7 @@
   },
   "workspace": {
     "dependencies": [
-      "npm:@resvg/resvg-wasm@^2.6.2",
       "npm:nodemailer@^6.9.16",
-      "npm:satori@~0.10.13",
       "npm:xlsx@0.18.5"
     ],
     "packageJson": {

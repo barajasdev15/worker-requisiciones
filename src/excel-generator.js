@@ -15,8 +15,7 @@ import { formatFechaSAP } from './utils.js';
 // Mapeo de columnas originales -> nombres legibles en español.
 // Orden importa: así saldrán en el Excel.
 const COLUMNAS_EXPORT = [
-  { key: 'Plnt',          label: 'Planta',           width: 8  },
-  { key: 'PO',            label: 'Orden Compra',     width: 12 },
+  { key: 'Plnt',          label: 'Planta',           width: 8  },  
   { key: 'Purch.Req.',    label: 'Requisición',      width: 13 },
   { key: 'Item',          label: 'Item',             width: 7  },
   { key: 'Material',      label: 'Material',         width: 13 },
