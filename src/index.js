@@ -55,8 +55,8 @@ async function handler(request) {
   try {
     const bodyText = await request.text();
     if (bodyText) body = JSON.parse(bodyText);
-  } catch {
-    // body inválido, seguimos con defaults
+  } catch (err) {
+    log(requestId, 'Error: ', err.message, err.stack);
   }
 
   const dryRun = body.dry_run === true;
