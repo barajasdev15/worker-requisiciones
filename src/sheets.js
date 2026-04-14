@@ -49,16 +49,46 @@ export async function leerHoja(sheetId, hojaNombre, accessToken) {
 }
 
 /**
- * Función de alto nivel: lee ambos sheets en paralelo y devuelve los datos.
- * Hace una sola autenticación para ambos.
+ * Obtiene los datos de ambas fuentes (requisiciones + correos).
+ *
+ * Soporta DOS modos de operación:
+ *   1. Modo Google Sheets (default): lee ambos sheets de Google.
+ *   2. Modo BAPI: si body.items viene definido, usa esos items como
+ *      requisiciones (pre-mapeados) y sigue leyendo el sheet de correos.
+ *
+ * El sheet de correos SIEMPRE se lee de Google — esa fuente no cambia.
+ * Solo las requisiciones pueden venir de BAPI o de Sheets.
  */
-export async function leerAmbosSheets(env) {
+export async function leerAmbosSheets(env, body = {}) {
   const accessToken = await getGoogleAccessToken(env.GOOGLE_SERVICE_ACCOUNT_JSON);
 
-  // Promise.all = paralelo, no secuencial. Más rápido.
+  // Siempre leemos el sheet de correos (es el directorio de destinatarios)
+  const correosPromise = leerHoja(
+    env.SHEET_ID_CORREOS,
+    CONFIG.HOJA_CORREOS,
+    accessToken
+  );
+
+  // Las requisiciones vienen de BAPI o de Sheets según el body
+  let requisicionesPromise;
+  if (body && Array.isArray(body.items) && body.items.length > 0) {
+    // Modo BAPI: los items vienen ya en el body, los mapeamos a formato interno
+    // (el mapeo es síncrono pero lo envolvemos en Promise.resolve para
+    //  poder usar Promise.all igual que en el modo Sheets)
+    const { mapearItemsBAPI } = await import('./bapi-mapper.js');
+    requisicionesPromise = Promise.resolve(mapearItemsBAPI(body.items));
+  } else {
+    // Modo Sheets (default): leemos el sheet de requisiciones
+    requisicionesPromise = leerHoja(
+      env.SHEET_ID_REQUISICIONES,
+      CONFIG.HOJA_REQUISICIONES,
+      accessToken
+    );
+  }
+
   const [requisiciones, correos] = await Promise.all([
-    leerHoja(env.SHEET_ID_REQUISICIONES, CONFIG.HOJA_REQUISICIONES, accessToken),
-    leerHoja(env.SHEET_ID_CORREOS, CONFIG.HOJA_CORREOS, accessToken)
+    requisicionesPromise,
+    correosPromise
   ]);
 
   return { requisiciones, correos };

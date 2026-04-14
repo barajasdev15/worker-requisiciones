@@ -1,0 +1,57 @@
+{
+  "dry_run": true,
+  "source": "sap_bapi",
+  "items": [
+    {
+      "PREQ_NO": "0010111952",
+      "PREQ_ITEM": "00001",
+      "MATERIAL": "000000000001-03444",
+      "SHORT_TEXT": "RODAMIENTO DE RODILLOS WARD IR-566432",
+      "QUANTITY": "1.000",
+      "UNIT": "PZA",
+      "DELIV_DATE": "20251217",
+      "PLANT": "GPE",
+      "PREQ_DATE": "20251223",
+      "TRACKINGNO": "COMP_CORP1",
+      "PREQ_NAME": "Planif. Prod",
+      "CREATED_BY": "Planif. Prod",
+      "C_AMT_BAPI": "2254.75",
+      "PRICE_UNIT": "1",
+      "GENERAL_RELEASE": "X"
+    },
+    {
+      "PREQ_NO": "0002008096",
+      "PREQ_ITEM": "00010",
+      "MATERIAL": "",
+      "SHORT_TEXT": "SUM. LONA EPP 1 X 3 CMS",
+      "QUANTITY": "1.000",
+      "UNIT": "PZA",
+      "DELIV_DATE": "20250410",
+      "PLANT": "GPE",
+      "PREQ_DATE": "20250707",
+      "TRACKINGNO": "COMP_GPE",
+      "PREQ_NAME": "SEGURIDAD",
+      "CREATED_BY": "ORANDEDU",
+      "C_AMT_BAPI": "900.00",
+      "PRICE_UNIT": "1",
+      "GENERAL_RELEASE": "X"
+    },
+    {
+      "PREQ_NO": "0002008102",
+      "PREQ_ITEM": "00020",
+      "MATERIAL": "000000000034-02235",
+      "SHORT_TEXT": "LOCTITE 567 CON TEFLON 250 ML",
+      "QUANTITY": "3.000",
+      "UNIT": "PZA",
+      "DELIV_DATE": "20250611",
+      "PLANT": "GPE",
+      "PREQ_DATE": "20250707",
+      "TRACKINGNO": "COMP_SUM",
+      "PREQ_NAME": "ALMACEN",
+      "CREATED_BY": "GONZJOR",
+      "C_AMT_BAPI": "100.00",
+      "PRICE_UNIT": "10",
+      "GENERAL_RELEASE": "X"
+    }
+  ]
+}

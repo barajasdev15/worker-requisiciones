@@ -63,7 +63,7 @@ async function handler(request) {
 
   try {
     log(requestId, `Iniciando procesamiento${dryRun ? ' (DRY RUN - sin envío real)' : ''}`);
-    const result = await procesarTodo(env, requestId, { dryRun });
+    const result = await procesarTodo(env, requestId, { dryRun, body });
     log(requestId, 'Procesamiento terminado:', JSON.stringify(result.summary));
     return jsonResponse({ request_id: requestId, dry_run: dryRun, ...result });
   } catch (err) {
@@ -79,11 +79,14 @@ async function handler(request) {
  * Orquesta el flujo completo: leer, procesar, enviar.
  */
 async function procesarTodo(env, requestId, options = {}) {
-  const { dryRun = false } = options;
+  const { dryRun = false, body = {} } = options;
 
-  // 1. Leer datos
-  log(requestId, 'Leyendo Google Sheets...');
-  const { requisiciones, correos } = await leerAmbosSheets(env);
+  // 1. Leer datos — fuente dual: BAPI si body.items viene, Sheets si no
+  const fuente = (Array.isArray(body.items) && body.items.length > 0)
+    ? `BAPI (${body.items.length} items)`
+    : 'Google Sheets';
+  log(requestId, `Leyendo datos desde ${fuente}...`);
+  const { requisiciones, correos } = await leerAmbosSheets(env, body);
   log(requestId, `Leídas ${requisiciones.length} requisiciones, ${correos.length} compradores configurados`);
 
   // 2. Procesar
