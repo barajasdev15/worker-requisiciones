@@ -132,7 +132,7 @@ export function htmlBodyIndividual(grupo) {
            para el comprador <strong>${grupo.comprador}</strong>.</p>
         <ul>
           <li><strong>Total de requisiciones:</strong> ${grupo.cantidad_items}</li>
-          <li><strong>Valor total:</strong> $${grupo.valor_total.toFixed(2)}</li>
+          <li><strong>Valor total:</strong> ${formatter.format(grupo.valor_total)}</li>
         </ul>
         <p>Se adjunta:</p>
         <ul>
@@ -158,7 +158,7 @@ export function htmlBodyResumen(resumen) {
            de las requisiciones pendientes en SAP.</p>
         <ul>
           <li><strong>Total de requisiciones:</strong> ${resumen.total_requisiciones}</li>
-          <li><strong>Valor total acumulado:</strong> $${resumen.valor_total.toFixed(2)}</li>
+          <li><strong>Valor total acumulado:</strong> ${formatter.format(resumen.valor_total)}</li>
           <li><strong>Compradores activos:</strong> ${resumen.compradores_activos}</li>
         </ul>
         <p>Se adjunta:</p>
@@ -174,3 +174,10 @@ export function htmlBodyResumen(resumen) {
     </html>
   `;
 }
+
+const formatter = new Intl.NumberFormat('es-MX', {
+  style: 'currency',
+  currency: 'MXN',
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2
+});

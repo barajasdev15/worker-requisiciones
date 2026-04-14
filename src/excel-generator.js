@@ -21,7 +21,7 @@ const COLUMNAS_EXPORT = [
   { key: 'Material',      label: 'Material',         width: 13 },
   { key: 'Quantity',      label: 'Cantidad',         width: 10 },
   { key: 'Short Text',    label: 'Descripción',      width: 45 },
-  { key: '    Total Val.', label: 'Valor Total',     width: 14, format: 'currency' },
+  { key: '    Total Val.', label: 'Valor Total',     width: 14, format: 'currency', style: { numFmt: '"$"#,##0.00' } },
   { key: 'Deliv.Date',    label: 'Fecha Entrega',    width: 13, format: 'date' },
   { key: 'Chngd',         label: 'Fecha Cambio',     width: 13 },
   { key: 'TrackingNo',    label: 'Comprador',        width: 13 },
@@ -35,6 +35,12 @@ const COLOR_HEADER_BG = 'FF003366';
 const COLOR_HEADER_FG = 'FFFFFFFF';
 const COLOR_ZEBRA     = 'FFF8FAFF';
 const COLOR_TOTAL_BG  = 'FFE8F0FE';
+const excelFormats = {
+  currency: '"$"#,##0.00',
+  number: '#,##0.00',
+  integer: '#,##0',
+  percent: '0.00%'
+};
 
 /**
  * Genera un Excel con UNA hoja para un comprador individual.
